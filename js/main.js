@@ -30,21 +30,15 @@ const carouselDescription = () => {
 }
 
 const validateForm = () => {
-    $("#contact_form").on("submit", function () {
-        $('.ct_input').each(function(){
-            if($(this).val() == ""){
-                $(this).closest("div").find('label').css("color","#B90000");
-                $(this).closest("div").append("<p class='error_message'>The field is required</p>");
-            } else {
-                $(this).closest("div").find('label').css("color","rgba(255, 255, 255, 0.87)");
-                $(this).closest("div").find('.error_message').remove();
-            }
-        });
-
-        if($(this).find('.error_message').length == 0) {
-            return true;
+    $(".ct_input").focusout(function(){
+        if($(this).val() == ""){
+            $(this).css("border-color","#B90000");
+            $(this).closest("div").find('label').css("color","#B90000");
+            $(this).closest("div").append("<p class='error_message'>The field is required</p>");
         } else {
-            return false;
+            $(this).css("border-color","#8FBB18");
+            $(this).closest("div").find('label').css("color","rgba(255, 255, 255, 0.87)");
+            $(this).closest("div").find('.error_message').remove();
         }
     });
 }
