@@ -31,7 +31,7 @@ const carouselDescription = () => {
 
 const validateForm = () => {
     $(".ct_input").focusout(function(){
-        if($(this).val() == ""){
+        if($.trim($(this).val()) == ""){
             $(this).css("border-color","#B90000");
             $(this).closest("div").find('label').css("color","#B90000");
             $(this).closest("div").append("<p class='error_message'>The field is required</p>");
